@@ -1,415 +1,182 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اكشحها Lite.249 🫢</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Arial',sans-serif;}
-body{background:linear-gradient(135deg,#8E2DE2,#4A00E0);color:white;min-height:100vh;padding-bottom:30px;}
-.logo{position:absolute;top:15px;right:20px;font-size:14px;font-weight:bold;background:rgba(255,255,255,0.2);padding:6px 12px;border-radius:20px;z-index:10;}
-.logo span{color:#FFD700;}
-header{text-align:center;padding:30px;padding-top:60px;}
-header h1{font-size:40px;margin-bottom:10px;}
-header p{font-size:18px;opacity:0.9;}
-.container{max-width:600px;margin:20px auto;padding:20px;background:rgba(255,255,255,0.1);border-radius:20px;backdrop-filter:blur(10px);position:relative;z-index:1;}
-.tabs{display:flex;gap:10px;margin-bottom:20px;}
-.tab{flex:1;padding:12px;background:white;color:#4A00E0;border:0;border-radius:10px;font-weight:bold;cursor:pointer;}
-.tab.active{background:#FFD700;color:#333;}
-input,textarea{width:100%;padding:12px;margin:10px 0;border:0;border-radius:10px;font-size:16px;color:#333;}
-.btn{width:100%;padding:15px;background:#27ae60;color:white;border:0;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer;margin:5px 0;position:relative;z-index:5;}
-.btn:hover{opacity:0.9;}
-.btn-green{background:#27ae60!important;}
-.btn-red{background:#e74c3c!important;}
-.btn-pink{background:#e91e63!important;}
-.btn-blue{background:#3498db!important;}
-.message{background:white;color:#333;padding:15px;margin:10px 0;border-radius:10px;text-align:right;position:relative;}
-.message.unread{border-right:4px solid #FFD700;}
-.unread-dot{position:absolute;left:10px;top:15px;width:10px;height:10px;background:#e74c3c;border-radius:50%;}
-.hidden{display:none!important;}
-.link-box{display:flex;gap:10px;align-items:center;}
-#myLink{flex:1;background:white;color:#4A00E0;padding:12px;border-radius:10px;text-align:center;font-weight:bold;word-break:break-all;}
-.copy-btn{padding:12px 20px;background:#27ae60;border:0;border-radius:10px;color:white;font-weight:bold;cursor:pointer;}
-.copy-btn.copied{background:#2ecc71;}
-.box-title{text-align:center;margin-bottom:10px;font-size:20px;font-weight:bold;color:#FFD700;}
-.auth-switch{text-align:center;margin-top:10px;cursor:pointer;text-decoration:underline;color:#FFD700;}
-.inbox-title{display:flex;justify-content:space-between;align-items:center;}
-.badge{background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:14px;}
-.profile-header{text-align:center;}
-.profile-pic{width:100px;height:100px;border-radius:50%;background:#FFD700;margin:0 auto 15px;display:flex;align-items:center;justify-content:center;font-size:40px;color:#4A00E0;font-weight:bold;overflow:hidden;}
-.profile-pic img{width:100%;height:100%;object-fit:cover;}
-.stats{display:flex;gap:10px;justify-content:center;margin:15px 0;}
-.stat-box{background:rgba(255,255,255,0.2);padding:10px 20px;border-radius:10px;text-align:center;}
-.stat-box b{display:block;font-size:22px;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اكشحها Lite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e2f, #0f0f1a);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #a0a0b0;
+        }
+
+        .container {
+            background: #27273a;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #3f3f5a;
+            border-radius: 8px;
+            background: #1e1e2f;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #ffd700;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #ffd700;
+            color: #1e1e2f;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background: #e6c200;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            color: #6c6c8a;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-<div class="logo">اكشحها <span>Lite.249</span></div>
-
-<div id="authPage" class="container">
-  <h2 id="authTitle">سجل عشان تبدا تكشح 🔥</h2>
-  <input type="text" id="username" placeholder="اليوزر: ahmed123" autocomplete="username">
-  <input type="password" id="password" placeholder="كلمة السر" autocomplete="current-password">
-  <input type="text" id="phoneInput" placeholder="رقم واتساب: 2499xxxxxxx">
-  <button type="button" class="btn btn-green" id="authBtn">انشاء الحساب</button>
-  <p class="auth-switch" id="switchAuth">عندك حساب؟ سجل دخول</p>
-  <p id="status" style="margin-top:10px; text-align:center; color:#FFD700;"></p>
-</div>
-
-<div id="mainPage" class="hidden">
-  <header>
-    <h1>اكشحها 🫢</h1>
-    <p>"اتكلم براحتك يا زول"</p>
-  </header>
-
-  <div class="container">
-    <h2>رابطك الخاص</h2>
-    <div class="link-box">
-      <div id="myLink"></div>
-      <button type="button" class="copy-btn" id="copyBtn">نسخ</button>
+    <div class="header">
+        <h1>اكشحها Lite 🤫</h1>
+        <p>أرسل واستقبل الرسائل السرية بكل سهولة وبدون تعقيد</p>
     </div>
-    <button type="button" class="btn btn-green" id="whatsappBtn">مشاركة واتساب</button>
-  </div>
 
-  <div class="container">
-    <h2>رسل رسالة سرية</h2>
-    <input type="text" id="toUser" placeholder="لمنو؟ اكتب اليوزر: ahmed123">
-    <div class="tabs">
-      <button type="button" class="tab active" data-type="sara7a">صراحة</button>
-      <button type="button" class="tab" data-type="tahadi">تحدي</button>
+    <div class="container">
+        <form id="secretForm">
+            <div class="form-group">
+                <label for="recipient">اسم الشخص أو المستلم:</label>
+                <input type="text" id="recipient" placeholder="اكتب الاسم هنا..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">الرسالة السرية:</label>
+                <textarea id="message" rows="5" placeholder="اكتب رسالتك السرية هنا..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">إرسال الرسالة السرية</button>
+        </form>
     </div>
-    <textarea id="msg" rows="4" placeholder="اكتب سؤال الصراحة..."></textarea>
-    <button type="button" class="btn btn-green" id="sendBtn">اكشحها 🔥</button>
-  </div>
 
-  <div class="container">
-    <h2>الصناديق 📦</h2>
-    <button type="button" class="btn btn-red" data-box="atab">صندوق العتاب</button>
-    <button type="button" class="btn btn-green" data-box="shokor">صندوق الشكر</button>
-    <button type="button" class="btn btn-pink" data-box="hob">صندوق الحب</button>
-    <div id="boxMessages"></div>
-  </div>
+    <footer>
+        تطبيق اكشحها Lite &copy; 2026
+    </footer>
 
-  <div class="container">
-    <div class="inbox-title">
-      <h2>صندوق الوارد 📥</h2>
-      <span id="unreadBadge" class="badge hidden">0</span>
-    </div>
-    <div id="inbox">جاري تحميل الرسائل...</div>
-  </div>
+    <!-- Firebase Script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-  <div class="container">
-    <button type="button" class="btn btn-blue" id="openProfileBtn">الملف الشخصي 👤</button>
-    <button type="button" class="btn btn-red" id="logoutBtn">تسجيل خروج</button>
-  </div>
-</div>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmWjyPgmSaMcPooKcOeBW0y94ZNp4DFa0",
+            authDomain: "aksh7ha.firebaseapp.com",
+            projectId: "aksh7ha",
+            storageBucket: "aksh7ha.firebasestorage.app",
+            messagingSenderId: "1031685608222",
+            appId: "1:1031685608222:web:e3d21bccce9cc395c0ef0f"
+        };
 
-<div id="profilePage" class="hidden">
-  <header><h1>الملف الشخصي 👤</h1></header>
-  <div class="container">
-    <div class="profile-header">
-      <div class="profile-pic" id="profilePic">?</div>
-      <h2 id="profileUsername">@username</h2>
-      <p id="profileBio" style="opacity:0.8;margin:10px 0;">اكتب نبذة عنك...</p>
-    </div>
-    <div class="stats">
-      <div class="stat-box"><b id="msgCount">0</b><span>رسالة</span></div>
-      <div class="stat-box"><b id="joinDate">--</b><span>انضم</span></div>
-    </div>
-    <h3 style="margin-top:20px;">تعديل الملف</h3>
-    <input type="text" id="editBio" placeholder="اكتب نبذة عنك">
-    <input type="text" id="editPic" placeholder="رابط صورتك">
-    <button type="button" class="btn btn-green" id="saveProfileBtn">حفظ التعديلات</button>
-    <button type="button" class="btn btn-red" id="backBtn">الرجوع</button>
-  </div>
-</div>
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { 
-  getFirestore, doc, setDoc, getDoc, updateDoc, 
-  collection, addDoc, onSnapshot, query, where 
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+        document.getElementById('secretForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const recipient = document.getElementById('recipient').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAmWjyPgmSaMcPooKcOeBW0y94ZNp4DFa0",
-  authDomain: "aksh7ha.firebaseapp.com",
-  projectId: "aksh7ha",
-  storageBucket: "aksh7ha.firebasestorage.app",
-  messagingSenderId: "1031685608222",
-  appId: "1:1031685608222:web:e3d21bccce9cc395c0ef0f"
-};
+            submitBtn.disabled = true;
+            submitBtn.innerText = "جاري الإرسال...";
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+            try {
+                await addDoc(collection(db, "messages"), {
+                    to: recipient,
+                    text: message,
+                    time: Date.now()
+                });
 
-let currentUser = localStorage.getItem('aksh7a_user_v5');
-let msgType = 'sara7a';
-let isLoginMode = false;
-let myLink = "";
-const originalTitle = "اكشحها Lite.249 🫢";
-let unsubscribeInbox = null;
-
-const boxData = {
-  atab: ["ليه متغير علي؟ وحشتني", "الموضوع ده زعلني منك", "كنت متوقع منك احسن من كده"],
-  shokor: ["شكرا انك جنبي دايما", "تسلم على وقفتك معاي", "ما قصرت والله. ربنا يخليك"],
-  hob: ["بحبك اكتر من نفسي", "انت كل شي بالنسبة لي", "وجودك في حياتي نعمة"]
-};
-
-const urlParams = new URLSearchParams(window.location.search);
-const targetUser = urlParams.get('to');
-
-window.onload = async function(){
-  if(targetUser){
-    document.getElementById('toUser').value = targetUser;
-  }
-  if(currentUser){
-    showMainPage(currentUser);
-  }else{
-    document.getElementById('authPage').classList.remove('hidden');
-  }
-}
-
-document.getElementById('switchAuth').onclick = function(){
-  isLoginMode = !isLoginMode;
-  let phoneInput = document.getElementById('phoneInput');
-  if(isLoginMode){
-    document.getElementById('authTitle').innerText = "سجل دخول 🔑";
-    document.getElementById('authBtn').innerText = "دخول";
-    phoneInput.style.display = 'none';
-    document.getElementById('switchAuth').innerText = "ما عندك حساب؟ سجل جديد";
-  }else{
-    document.getElementById('authTitle').innerText = "سجل عشان تبدا تكشح 🔥";
-    document.getElementById('authBtn').innerText = "انشاء الحساب";
-    phoneInput.style.display = 'block';
-    document.getElementById('switchAuth').innerText = "عندك حساب؟ سجل دخول";
-  }
-}
-
-function hashPassword(pass){
-  return btoa(unescape(encodeURIComponent(pass)));
-}
-
-document.getElementById('authBtn').onclick = async function(){
-  let user = document.getElementById('username').value.toLowerCase().trim();
-  let pass = document.getElementById('password').value.trim();
-  let phone = document.getElementById('phoneInput').value.trim();
-  let status = document.getElementById('status');
-
-  if(user.length<3){status.innerText="اليوزر لازم 3 حروف فاكثر"; return;}
-  if(pass.length<4){status.innerText="الباسورد لازم 4 حروف فاكثر"; return;}
-
-  status.innerText = "جاري الاتصال...";
-
-  try {
-    if(isLoginMode){
-      const userDoc = await getDoc(doc(db, "users", user));
-      if(!userDoc.exists()){status.innerText="اليوزر ده ما موجود"; return;}
-      if(userDoc.data().password !== hashPassword(pass)){status.innerText="كلمة السر غلط"; return;}
-      localStorage.setItem('aksh7a_user_v5', user);
-      currentUser = user;
-      showMainPage(user);
-    }else{
-      if(phone.length<9){status.innerText="دخل رقم صح"; return;}
-      const userDoc = await getDoc(doc(db, "users", user));
-      if(userDoc.exists()){status.innerText="اليوزر ده مستخدم"; return;}
-
-      await setDoc(doc(db, "users", user), {
-        username: user,
-        phone: phone,
-        password: hashPassword(pass),
-        created: Date.now(),
-        bio: "",
-        pic: ""
-      });
-
-      localStorage.setItem('aksh7a_user_v5', user);
-      currentUser = user;
-      showMainPage(user);
-    }
-  } catch(e) {
-    status.innerText = "خطأ في الاتصال، تأكد من الشبكة!";
-  }
-};
-
-function showMainPage(user){
-  hideAll();
-  document.getElementById('mainPage').classList.remove('hidden');
-  myLink = window.location.origin + window.location.pathname + "?to=" + user;
-  document.getElementById('myLink').innerText = myLink;
-  listenToMessages(user);
-}
-
-document.getElementById('openProfileBtn').onclick = async function(){
-  hideAll();
-  document.getElementById('profilePage').classList.remove('hidden');
-  const userDoc = await getDoc(doc(db, "users", currentUser));
-  let userData = userDoc.data();
-
-  document.getElementById('profileUsername').innerText = '@' + currentUser;
-  document.getElementById('profileBio').innerText = userData.bio || "اكتب نبذة عنك...";
-  document.getElementById('editBio').value = userData.bio || "";
-  document.getElementById('editPic').value = userData.pic || "";
-
-  let picDiv = document.getElementById('profilePic');
-  if(userData.pic){
-    picDiv.innerHTML = `<img src="${userData.pic}">`;
-  }else{
-    picDiv.innerHTML = currentUser.charAt(0).toUpperCase();
-  }
-
-  let date = new Date(userData.created);
-  document.getElementById('joinDate').innerText = date.toLocaleDateString('ar-EG', {month:'short', year:'2-digit'});
-}
-
-document.getElementById('backBtn').onclick = function(){
-  showMainPage(currentUser);
-}
-
-document.getElementById('saveProfileBtn').onclick = async function(){
-  let newBio = document.getElementById('editBio').value.trim();
-  let newPic = document.getElementById('editPic').value.trim();
-  await updateDoc(doc(db, "users", currentUser), {
-    bio: newBio,
-    pic: newPic
-  });
-  alert("تم حفظ الملف الشخصي ✅");
-  document.getElementById('openProfileBtn').click();
-}
-
-function hideAll(){
-  document.getElementById('authPage').classList.add('hidden');
-  document.getElementById('mainPage').classList.add('hidden');
-  document.getElementById('profilePage').classList.add('hidden');
-}
-
-document.getElementById('copyBtn').addEventListener('click', function(){
-  navigator.clipboard.writeText(myLink).then(function(){
-    let btn = document.getElementById('copyBtn');
-    btn.innerText = "تم النسخ ✅";
-    btn.classList.add('copied');
-    setTimeout(()=>{btn.innerText="نسخ"; btn.classList.remove('copied')}, 2000);
-  }).catch(err => alert("فشل النسخ"));
-});
-
-document.getElementById('whatsappBtn').addEventListener('click', function(){
-  let text = `رسل لي رسالة سرية في اكشحها 🫢%0A${myLink}`;
-  window.location.href = `https://wa.me/?text=${text}`;
-});
-
-document.querySelectorAll('.tab[data-type]').forEach(btn=>{
-  btn.onclick = function(e){
-    msgType = e.target.dataset.type;
-    document.querySelectorAll('.tab[data-type]').forEach(tab=>tab.classList.remove('active'));
-    e.target.classList.add('active');
-    document.getElementById('msg').placeholder = msgType=='sara7a'? 'اكتب سؤال الصراحة...' : 'اكتب التحدي...';
-  }
-});
-
-document.getElementById('sendBtn').onclick = async function(){
-  let to = document.getElementById('toUser').value.toLowerCase().trim();
-  let text = document.getElementById('msg').value.trim();
-  if(to=="" || text==""){alert("املا كل الحقول"); return;}
-  
-  try {
-    const userCheck = await getDoc(doc(db, "users", to));
-    if(!userCheck.exists()){alert("اليوزر ده ما موجود"); return;}
-
-    await addDoc(collection(db, "messages"), {
-      to: to,
-      from: currentUser || "guest",
-      type: msgType,
-      text: text,
-      time: Date.now(),
-      isRead: false
-    });
-
-    alert("تم الاكشاح 😂");
-    document.getElementById('msg').value="";
-  } catch(e) {
-    alert("حدث خطأ أثناء الإرسال، تأكد من اتصال الإنترنت!");
-  }
-};
-
-function listenToMessages(user){
-  if(unsubscribeInbox) unsubscribeInbox();
-  
-  const q = query(
-    collection(db, "messages"), 
-    where("to", "==", user)
-  );
-
-  unsubscribeInbox = onSnapshot(q, (snapshot) => {
-    let inbox = document.getElementById('inbox');
-    inbox.innerHTML = "";
-    let unreadCount = 0;
-    
-    document.getElementById('msgCount').innerText = snapshot.docs.length;
-
-    if(snapshot.empty){
-      inbox.innerHTML = "لسه ما جاتك رسائل";
-      document.getElementById('unreadBadge').classList.add('hidden');
-      document.title = originalTitle;
-      return;
-    }
-
-    let docsArray = snapshot.docs.map(d => ({id: d.id, data: d.data()}));
-    docsArray.sort((a, b) => b.data.time - a.data.time);
-
-    docsArray.forEach((item) => {
-      let m = item.data;
-      let id = item.id;
-      if(!m.isRead) unreadCount++;
-
-      let unreadClass = !m.isRead ? 'unread' : '';
-      let dot = !m.isRead ? '<div class="unread-dot"></div>' : '';
-
-      let msgDiv = document.createElement('div');
-      msgDiv.className = `message ${unreadClass}`;
-      msgDiv.innerHTML = `${dot}<b>رسالة ${m.type} مجهولة:</b><br>${m.text}`;
-      msgDiv.onclick = () => markAsRead(id);
-      
-      inbox.appendChild(msgDiv);
-    });
-
-    let badge = document.getElementById('unreadBadge');
-    if(unreadCount > 0){
-      badge.innerText = unreadCount;
-      badge.classList.remove('hidden');
-      document.title = `(${unreadCount}) ${originalTitle}`;
-    }else{
-      badge.classList.add('hidden');
-      document.title = originalTitle;
-    }
-  }, (error) => {
-    console.log("Error loading inbox:", error);
-  });
-}
-
-async function markAsRead(docId){
-  await updateDoc(doc(db, "messages", docId), { isRead: true });
-}
-
-document.querySelectorAll('.btn[data-box]').forEach(btn=>{
-  btn.onclick = function(e){
-    let box = e.target.dataset.box;
-    let boxDiv = document.getElementById('boxMessages');
-    let title = box == 'atab'? 'صندوق العتاب 💔' : box == 'shokor'? 'صندوق الشكر 🙏' : 'صندوق الحب ❤️';
-    let html = `<div class="box-title">${title}</div>`;
-    boxData[box].forEach(msg => {
-      html += `<div class="message">${msg}</div>`;
-    });
-    boxDiv.innerHTML = html;
-  }
-});
-
-document.getElementById('logoutBtn').onclick = function(){
-  localStorage.removeItem('aksh7a_user_v5');
-  document.title = originalTitle;
-  if(unsubscribeInbox) unsubscribeInbox();
-  location.reload();
-};
-</script>
+                alert('تم إرسال الرسالة السرية بنجاح! 🚀');
+                this.reset();
+            } catch (error) {
+                alert('حدث خطأ أثناء الإرسال، حاول مرة أخرى!');
+                console.error(error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "إرسال الرسالة السرية";
+            }
+        });
+    </script>
 </body>
 </html>

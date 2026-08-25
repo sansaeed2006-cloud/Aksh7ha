@@ -47,7 +47,6 @@ input,textarea{width:100%;padding:12px;margin:10px 0;border:0;border-radius:10px
 
 <div class="logo">اكشحها <span>Lite.249</span></div>
 
-<!-- صفحة تسجيل الدخول / إنشاء الحساب الأصلية -->
 <div id="authPage" class="container">
   <h2 id="authTitle">سجل عشان تبدا تكشح 🔥</h2>
   <input type="text" id="username" placeholder="اليوزر: ahmed123" autocomplete="username">
@@ -58,7 +57,6 @@ input,textarea{width:100%;padding:12px;margin:10px 0;border:0;border-radius:10px
   <p id="status" style="margin-top:10px; text-align:center; color:#FFD700;"></p>
 </div>
 
-<!-- الصفحة الرئيسية الأصلية -->
 <div id="mainPage" class="hidden">
   <header>
     <h1>اكشحها 🫢</h1>
@@ -107,7 +105,6 @@ input,textarea{width:100%;padding:12px;margin:10px 0;border:0;border-radius:10px
   </div>
 </div>
 
-<!-- صفحة الملف الشخصي الأصلية -->
 <div id="profilePage" class="hidden">
   <header><h1>الملف الشخصي 👤</h1></header>
   <div class="container">
@@ -128,7 +125,6 @@ input,textarea{width:100%;padding:12px;margin:10px 0;border:0;border-radius:10px
   </div>
 </div>
 
-<!-- ربط الفايربيس والمنطق البرمجي السليم -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import { 
@@ -154,6 +150,7 @@ let isLoginMode = false;
 let myLink = "";
 const originalTitle = "اكشحها Lite.249 🫢";
 let unsubscribeInbox = null;
+let previousMsgCount = -1; 
 
 const boxData = {
   atab: ["ليه متغير علي؟ وحشتني", "الموضوع ده زعلني منك", "كنت متوقع منك احسن من كده"],
@@ -164,7 +161,27 @@ const boxData = {
 const urlParams = new URLSearchParams(window.location.search);
 const targetUser = urlParams.get('to');
 
+// طلب إذن الإشعارات
+function requestNotificationPermission() {
+  if ("Notification" in window) {
+    if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+      Notification.requestPermission();
+    }
+  }
+}
+
+// إرسال الإشعار عند وصول رسالة
+function showNotification(text) {
+  if ("Notification" in window && Notification.permission === "granted") {
+    new Notification("وصلتك رسالة جديدة! 🫢", {
+      body: text,
+      icon: "https://cdn-icons-png.flaticon.com/512/3602/3602145.png"
+    });
+  }
+}
+
 window.onload = async function(){
+  requestNotificationPermission();
   if(targetUser){
     document.getElementById('toUser').value = targetUser;
   }
@@ -349,7 +366,14 @@ function listenToMessages(user){
     inbox.innerHTML = "";
     let unreadCount = 0;
     
-    document.getElementById('msgCount').innerText = snapshot.docs.length;
+    let currentTotalMessages = snapshot.docs.length;
+    document.getElementById('msgCount').innerText = currentTotalMessages;
+
+    // إرسال إشعار في حال وجود رسالة جديدة وصلت حديثاً
+    if (previousMsgCount !== -1 && currentTotalMessages > previousMsgCount) {
+      showNotification("وصلتك رسالة صراحة جديدة الآن!");
+    }
+    previousMsgCount = currentTotalMessages;
 
     if(snapshot.empty){
       inbox.innerHTML = "لسه ما جاتك رسائل";
@@ -386,8 +410,6 @@ function listenToMessages(user){
       badge.classList.add('hidden');
       document.title = originalTitle;
     }
-  }, (error) => {
-    console.log("Error loading inbox:", error);
   });
 }
 
@@ -416,4 +438,5 @@ document.getElementById('logoutBtn').onclick = function(){
 };
 </script>
 </body>
-</html>
+        </html>
+                                                
